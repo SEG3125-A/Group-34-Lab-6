@@ -1,0 +1,68 @@
+ /* Styling the Body element i.e. Color, Font, Alignment */
+        body {
+            background-color: #49f9ff;
+            font-family: Verdana;
+            text-align: center;
+        }
+ 
+        /* Styling the Form (Color, Padding, Shadow) */
+        form {
+            background-color: #fff;
+            max-width: 60%;
+            margin: 50px auto;
+            padding: 30px 20px;
+            box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+        }
+ 
+        /* Styling question Class */
+        .question {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+ 
+        /* Styling question Label */
+        .question label {
+            display: block;
+            margin-bottom: 10px;
+        }
+ 
+        /* Styling question input, select, textarea */
+        .question input,
+        .question select,
+        .question textarea {
+            border: 1px solid #777;
+            border-radius: 2px;
+            font-family: inherit;
+            padding: 10px;
+            display: block;
+            width: 30%;
+        }
+ 
+        /* Styling question Radio button and Checkbox */
+        .question input[type="radio"],
+        .question input[type="checkbox"] {
+            display: inline-block;
+            width: auto;
+        }
+ 
+        /* Styling Button */
+        button {
+            background-color: #49f9ff;
+            border: 1px solid #777;
+            border-radius: 2px;
+            font-family: inherit;
+            font-size: 21px;
+            display: block;
+            width: 30%;
+            margin-left: 34%;
+            align-items: center;
+            margin-bottom: 20px;
+            margin-top: 50px;
+            padding: 1%;
+        }
+
+        img {
+            width: 60%;
+        }
+
+        

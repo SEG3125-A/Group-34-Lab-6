@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Questionaire</title>
+</head>
+<body>
+    <!--Requirements-->
+    <h1>
+        <!--Title + link to website-->
+        <a href="https://www.tesla.com/en_CA/">TESLA website survey</a> 
+    </h1>
+    <!--An image of the page (UI to be evaluated) that also serves as a link to the website-->
+    <a href="https://www.tesla.com/en_CA/">
+        <img src="images/landingPage.png" alt="woops! landing page image is not showing">
+    </a>  
+
+    <!--A form containing at least 6 questions related to the evaluation of the website-->
+    <form name="survey">
+        <!--a text-type question-->
+        <div class="question">
+            <label for="question1">Is there any reports of confusion regarding the site structure or menu?</label>
+            <input type="text" placeholder="please type here">
+        </div>
+        <!--Two single choice questions (radio button and a list)-->
+        <div class="question">
+            <label>Are users able to navigate through the website easily?</label>
+
+            <label for="recommed-1">
+                <input type="radio" id="recommed-1"
+                       name="answer">Yes
+                  </input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio" id="recommed-2"
+                       name="answer">No
+                  </input>
+            </label>
+        </div>    
+        <div class="question">
+            <label>How would you rate the overall loading speed of the website?</label>
+            <select id="q3">
+                <option value="VFast" selected="selected">Very Fast</option>
+			    <option value="Fast">Fast</option>
+			    <option value="Average">Average</option>
+                <option value="Slow">Slow</option>
+                <option value="VSlow">Very Slow</option>
+            </select>
+        </div>
+        <!--A selection question (several boxes can be selected)-->
+        <div class="question">
+            <label>Please select all the features you find valuable in the website's user interface:</label>
+            <input type="checkbox">Intuitive Navigation<br>
+            <input type="checkbox">Responsive Design<br>
+            <input type="checkbox">Clear and Informative Labels<br>
+            <input type="checkbox">Quick Loading Times<br>
+            <input type="checkbox">Visually Appealing Design<br>
+
+        </div>
+        <!--A space to write down comments-->
+        <div class="question">
+            <label for="comment">
+                Any comments or suggestions?
+            </label>
+ 
+            <!-- multi-line text input -->
+            <textarea name="comment" id="comment"
+                      placeholder="Enter your comment here">
+            </textarea>
+
+        </div>
+        <button type="submit" value="submit">Submit</button>
+    </form>
+    <!--footer to do ...-->
+    <div class="footer">
+        <p>Copyright: Designed by Oussema Nijewi</p>
+    </div>
+</body>
+</html>
