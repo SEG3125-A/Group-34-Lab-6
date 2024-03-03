@@ -1,12 +1,26 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
+const path = require('path');
 const app = express();
 
-app.use(express.static("public")) //serve client static files html, css, images
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static("public")); // Serve client static files html, css, images
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
+
+const submissionsFilePath = path.join(__dirname, 'submissions', 'all_submissions.json');
+
+// Helper function to read existing submissions from file
+function readSubmissionsFromFile() {
+    try {
+        const data = fs.readFileSync(submissionsFilePath, 'utf8');
+        return JSON.parse(data);
+    } catch (error) {
+        // If file does not exist or cannot be read, return an empty array
+        return [];
+    }
+}
 
 // Route for handling form submission
 app.post('/submit', (req, res) => {
@@ -19,22 +33,24 @@ app.post('/submit', (req, res) => {
         comment: req.body.comment
     };
 
-    // json file name
-    const fileName = `answers.json`;
+    // Read existing submissions from file
+    const allSubmissions = readSubmissionsFromFile();
 
-    // Write form data to a JSON file
-    fs.writeFile(`./submissions/${fileName}`, JSON.stringify(formData, null, 2), (err) => {
+    // Add new submission to existing data
+    allSubmissions.push(formData);
+
+    // Write updated data back to file
+    fs.writeFile(submissionsFilePath, JSON.stringify(allSubmissions, null, 2), (err) => {
         if (err) {
             console.error('Error writing file:', err);
             res.status(500).send('Error saving form data');
         } else {
-            console.log('Form data saved to file:', fileName);
+            console.log('Form data saved to file:', submissionsFilePath);
             // Redirect back to the homepage or do whatever you want after handling the form submission
             res.redirect('/');
         }
     });
 });
-
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
