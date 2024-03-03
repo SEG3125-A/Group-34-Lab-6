@@ -18,30 +18,27 @@
     </a>  
 
     <!--A form containing at least 6 questions related to the evaluation of the website-->
-    <form name="survey">
+    <form name="survey" action="/submit" method="post">
         <!--a text-type question-->
         <div class="question">
             <label for="question1">Is there any reports of confusion regarding the site structure or menu?</label>
-            <input type="text" placeholder="please type here">
+            <input type="text" name="question1" placeholder="please type here">
         </div>
         <!--Two single choice questions (radio button and a list)-->
         <div class="question">
             <label>Are users able to navigate through the website easily?</label>
 
             <label for="recommed-1">
-                <input type="radio" id="recommed-1"
-                       name="answer">Yes
-                  </input>
+                <input type="radio" id="recommed-1" name="answer" value="Yes">Yes</input>
             </label>
             <label for="recommed-2">
-                <input type="radio" id="recommed-2"
-                       name="answer">No
+                <input type="radio" id="recommed-2" name="answer" value="No">No
                   </input>
             </label>
         </div>    
         <div class="question">
             <label>How would you rate the overall loading speed of the website?</label>
-            <select id="q3">
+            <select id="q3" name="q3">
                 <option value="VFast" selected="selected">Very Fast</option>
 			    <option value="Fast">Fast</option>
 			    <option value="Average">Average</option>
@@ -52,12 +49,11 @@
         <!--A selection question (several boxes can be selected)-->
         <div class="question">
             <label>Please select all the features you find valuable in the website's user interface:</label>
-            <input type="checkbox">Intuitive Navigation<br>
-            <input type="checkbox">Responsive Design<br>
-            <input type="checkbox">Clear and Informative Labels<br>
-            <input type="checkbox">Quick Loading Times<br>
-            <input type="checkbox">Visually Appealing Design<br>
-
+            <input type="checkbox" name="features" value="Intuitive Navigation">Intuitive Navigation<br>
+            <input type="checkbox" name="features" value="Responsive Design">Responsive Design<br>
+            <input type="checkbox" name="features" value="Clear and Informative Labels">Clear and Informative Labels<br>
+            <input type="checkbox" name="features" value="Quick Loading Times">Quick Loading Times<br>
+            <input type="checkbox" name="features" value="Visually Appealing Design">Visually Appealing Design<br>
         </div>
         <!--A space to write down comments-->
         <div class="question">
