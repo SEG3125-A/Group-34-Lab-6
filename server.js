@@ -47,9 +47,18 @@ app.post('/submit', (req, res) => {
         } else {
             console.log('Form data saved to file:', submissionsFilePath);
             // Redirect back to the homepage or do whatever you want after handling the form submission
-            res.redirect('/');
+            res.redirect('results');
         }
     });
+});
+
+app.get('/results', (req, res) => {
+    // Read existing submissions from file
+    const allSubmissions = readSubmissionsFromFile();
+    console.log("all submissions: ");
+    console.log(allSubmissions);
+    // Render the results page with survey data
+    res.render('results.ejs', { surveyResults: allSubmissions });
 });
 
 app.listen(3000, () => {

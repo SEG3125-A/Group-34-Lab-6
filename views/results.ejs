@@ -1,20 +1,41 @@
-<!-- results.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/style.css">
     <title>Survey Results</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Survey Results</h1>
-    <div>
-        <p>Question 1: <%= formData.question1 %></p>
-        <p>Question 2: <%= formData.answer %></p>
-        <p>Question 3: <%= formData.q3 %></p>
-        <p>Question 4: <%= formData.comment %></p>
-        <!-- Add more fields as needed -->
+    <div class="container">
+        <h1>Survey Results</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Question</th>
+                        <th>Answer</th>
+                        <th>Rating</th>
+                        <th>Features</th>
+                        <th>Comment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% surveyResults.forEach(result => { %>
+                        <tr>
+                            <td><%= result.question1 %></td>
+                            <td><%= result.answer %></td>
+                            <td><%= result.rating %></td>
+                            <td><%= result.features %></td>
+                            <td><%= result.comment %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            <!-- Button to navigate back to the survey page -->
+            <a href="/" class="btn btn-primary">Survey</a>
+        </div>
     </div>
 </body>
 </html>
